@@ -4,7 +4,7 @@
  * Plugin Name: Custom Post Homepage
  */
 
-function add_pages_to_dropdown( $pages, $r ){
+add_filter( 'get_pages', function( $pages, $r ) {
     if ( ! isset( $r[ 'name' ] ) )
         return $pages;
 
@@ -18,6 +18,4 @@ function add_pages_to_dropdown( $pages, $r ){
     }
 
     return $pages;
-}
-
-add_filter( 'get_pages', 'add_pages_to_dropdown', 10, 2 );
+}, 10, 2 );
